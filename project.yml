@@ -1,0 +1,50 @@
+name: Walker
+options:
+  bundleIdPrefix: com.walker
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: FTS4YLJNG3
+targets:
+  Walker:
+    type: application
+    platform: iOS
+    sources:
+      - Walker
+    settings:
+      base:
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: Portrait
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "Walker uses your GPS position to place zombies in the real world around you and track your run."
+        INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: "Walker needs background location so the zombie horde can chase you while your screen is off."
+        INFOPLIST_KEY_UIBackgroundModes: location
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.macedot.walker
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  WalkerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - WalkerUITests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.macedot.walker.uitests
+        TEST_TARGET_NAME: Walker
+schemes:
+  Walker:
+    build:
+      targets:
+        Walker: all
+        WalkerUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - WalkerUITests

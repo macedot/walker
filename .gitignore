@@ -1,0 +1,11 @@
+# Generated
+Walker.xcodeproj
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# macOS
+.DS_Store
